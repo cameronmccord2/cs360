@@ -95,7 +95,7 @@ var SampleApp = function() {
     self.createRoutes = function() {
         self.routes = { };
 
-        self.routes['/getSchedule'] = function(req, res) {
+        self.routes['getSchedule'] = function(req, res) {
             res.setHeader('Content-Type', 'application/json');
             res.send();
         };
@@ -105,22 +105,17 @@ var SampleApp = function() {
             res.send();
         };
 
-        self.routes['/getMedicines'] = function(req, res) {
-            res.setHeader('Content-Type', 'text/plain');
-            res.send("hi");
+        self.routes['/saveSettings'] = function(req, res) {
+            res.setHeader('Content-Type', 'application/json');
+            res.send();
         };
 
-        self.routes['/getMedicineHistory'] = function(req, res) {
+        self.routes['getMedicines'] = function(req, res) {
             res.setHeader('Content-Type', 'application/json');
             res.send();
         };
 
         self.routes['/deleteMedicine'] = function(req, res) {
-            res.setHeader('Content-Type', 'application/json');
-            res.send();
-        };
-
-        self.routes['/getSchedule'] = function(req, res) {
             res.setHeader('Content-Type', 'application/json');
             res.send();
         };
@@ -135,13 +130,11 @@ var SampleApp = function() {
         self.createRoutes();
         self.app = express.createServer();
 
-        //  Add handlers for the app (from the routes).
-        // for (var r in self.routes) {
-        //     self.app.get(r, self.routes[r]);
-        // }
-
-        self.app.get("getMedicines", self.routes['/getMedicines']);
-
+        self.app.get("/getSchedule", self.routes['getSchedule']);
+        self.app.post("/saveMedicine", self.routes['saveMedicines']);
+        self.app.post("/saveSettings", self.routes['saveSettings']);
+        self.app.get("/getMedicines", self.routes['getMedicines']);
+        self.app.delete("/deleteMedicine", self.routes['deleteMedicine']);
     };
 
 
