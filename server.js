@@ -100,12 +100,12 @@ var SampleApp = function() {
             res.send();
         };
 
-        self.routes['/saveMedicine'] = function(req, res) {
+        self.routes['saveMedicine'] = function(req, res) {
             res.setHeader('Content-Type', 'application/json');
             res.send();
         };
 
-        self.routes['/saveSettings'] = function(req, res) {
+        self.routes['saveSettings'] = function(req, res) {
             res.setHeader('Content-Type', 'application/json');
             res.send();
         };
@@ -115,7 +115,7 @@ var SampleApp = function() {
             res.send();
         };
 
-        self.routes['/deleteMedicine'] = function(req, res) {
+        self.routes['deleteMedicine'] = function(req, res) {
             res.setHeader('Content-Type', 'application/json');
             res.send();
         };
